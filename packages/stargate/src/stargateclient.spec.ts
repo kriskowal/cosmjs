@@ -182,7 +182,7 @@ describe("StargateClient", () => {
       const client = await StargateClient.connect(simapp.tendermintUrl);
 
       await expectAsync(client.getSequence(nonExistentAddress)).toBeRejectedWithError(
-        /account does not exist on chain/i,
+        /account '([a-z1-9]+)' does not exist on chain/i,
       );
 
       client.disconnect();
